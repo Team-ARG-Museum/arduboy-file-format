@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arduboy File Format</title>
+	<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+	<meta name="viewport" content="width=750" />
+	<meta name="buildDate" content="dinsdag 24 januari 2017" />
+	<meta property="og:url" content="https://teamarg.github.io/arduboy-file-format/" />
+	<meta property="og:type" content="website" /> 
+	<link rel="stylesheet" type="text/css" href="css/textstyles.css" />
+	<link rel="stylesheet" type="text/css" href="css/pagestyle.css?3.568126e+9" />
+	<script type="text/javascript" src="js/imageCode.js"></script>
+	<style type="text/css">
+		div.container {min-height: 1070px;}.shape_16 {background: url('images/shape_16.png') no-repeat;}@media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-devicepixel-ratio: 1.5), only screen and (min-resolution: 1.5dppx) {.shape_16 {background: url('images/shape_16@2x.png') no-repeat;background-size: 702px 162px;}}
+	</style>
+</head>
+
+<body onload="updateResult();showResult();" style="font-family: Courier New; text-align: center;">
+	<div class="shadow">
+		<div class="container" style="height:1070px">
+
+			<header>
+				<div style="position:relative">
+					<div class="shape_0" style="left:25px;top:-1px;width:700px;height:64px;z-index:0;position:absolute;">
+						<img src="images/tittle.gif" height="64" width="700" />
+					</div>
+				</div>
+				<div style="position:relative">
+					<a href="http://www.team-arg.org/index.html">
+						<div class="shape_1" style="left:25px;top:63px;width:88px;height:28px;z-index:1;position:absolute;">
+							<img src="images/home.gif" height="28" width="88" />
+						</div>
+					</a>
+				</div>
+				<div style="position:relative">
+					<a href="http://www.team-arg.org/more-about.html">
+						<div class="shape_2" style="left:637px;top:63px;width:88px;height:28px;z-index:2;position:absolute;">
+							<img src="images/more.gif" height="28" width="88" />
+						</div>
+					</a>
+				</div>
+				<div style="position:relative">
+					<a href="http://www.team-arg.org/news.html">
+						<div class="shape_3" style="left:141px;top:63px;width:88px;height:28px;z-index:3;position:absolute;">
+							<img src="images/news.gif" height="28" width="88" />
+						</div>
+					</a>
+				</div>
+				<div style="position:relative">
+					<a href="http://www.team-arg.org/games.html">
+						<div class="shape_4" style="left:251px;top:63px;width:108px;height:28px;z-index:4;position:absolute;">
+							<img src="images/games.gif" height="28" width="108" />
+						</div>
+					</a>
+				</div>
+				<div style="position:relative">
+					<a href="http://www.team-arg.org/demos.html">
+						<div class="shape_5" style="left:381px;top:63px;width:108px;height:28px;z-index:5;position:absolute;">
+							<img src="images/demos.gif" height="28" width="108" />
+						</div>
+					</a>
+				</div>
+				<div style="position:relative">
+					<a href="http://www.team-arg.org/tools.html">
+						<div class="shape_6" style="left:511px;top:63px;width:108px;height:28px;z-index:6;position:absolute;">
+							<img src="images/tools.gif" height="28" width="108" />
+						</div>
+					</a>
+				</div>
+			</header>
+
+
+			<div class="content" data-minheight="900">
+				<div style="position:relative">
+					<a href="index.htm">
+						<div class="shape_13" style="left:327px;top:235px;width:96px;height:21px;z-index:13;position:absolute;">
+							<img src="images/manual.gif" height="21" width="96" />
+						</div>
+					</a>
+				</div>
+				<div style="position:relative">
+					<div class="shape_14" style="left:25px;top:275px;width:700px;height:5px;z-index:14;position:absolute;">
+						<img src="images/longLine-14.gif" height="5" width="700" />
+					</div>
+				</div>
+				<div style="position:relative">
+					<div class="shape_15" style="left:25px;top:120px;width:700px;height:96px;z-index:15;position:absolute;">
+						<img src="images/SpriteSheetConverter.png" height="96" width="700" />
+					</div>
+				</div>
+				<div style="position:relative">
+					<div class="shape_18" style="left:25px;top:320px;width:700px;height:160px;z-index:17;position:absolute;">
+						<div style="margin: 4.32px 2.16px 4.32px 2.16px; ">
+							<!-- <div style='width:100%;text-align:left;'>
+								<label><strong>Schema version</strong></label>
+								<input type='number' name='schemaVersion' value='2' min='2' max='2' style='width:calc(100% - 6px);'>
+								<p class='info'>The schema version which the info.json complies with. This schema is version 2</p>
+							</div> -->
+							<div style='width:100%;text-align:left;' title='A title for everything contained within this .arduboy file.'>
+								<label><strong>Title*</strong></label>
+								<input type='text' name='title' class='required' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='A description of for everything contained within this .arduboy file.'>
+								<label><strong>Description</strong></label>
+								<input type='text' name='description' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='The author of the .arudboy file. Multiple authors can be named in the same string.'>
+								<label><strong>Author*</strong></label>
+								<input type='text' name='author' class='required' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='The release version of this .arduboy file.'>
+								<label><strong>Version*</strong></label>
+								<input type='text' name='version' class='required' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='The date and (optional) time of release, in ISO 8601 format. E.g. 2017-02-23 or 2017-02-23T22:15:45Z'>
+								<label><strong>Date and time</strong></label>
+								<input type='text' name='date' placeholder='2017-02-23' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='The type of game or .arduboy file. It must be one of the following: Puzzle, Shooter, Application, Demo, Action, Arcade, Platformer, RPG, Racing, Sports, Misc.'>
+								<label><strong>Genre</strong></label>
+								<select name='genre' style='width:100%;'>
+									<option>Puzzle</option>
+									<option>Shooter</option>
+									<option>Application</option>
+									<option>Demo</option>
+									<option>Action</option>
+									<option>Arcade</option>
+									<option>Platformer</option>
+									<option>RPG</option>
+									<option>Racing</option>
+									<option>Sports</option>
+									<option>Misc</option>
+								</select>
+							</div>
+							<div style='width:100%;text-align:left;' title='The person(s) or group in charge of publishing the .arduboy file.'>
+								<label><strong>Publisher</strong></label>
+								<input type='text' name='publisher' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='The person(s) who created the idea behind the .arduboy file.'>
+								<label><strong>Idea</strong></label>
+								<input type='text' name='idea' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title="The developer(s) of the .arduboy file's source code.">
+								<label><strong>Code developer</strong></label>
+								<input type='text' name='code' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='The person(s) who created any artwork in the .arduboy file.'>
+								<label><strong>Artist</strong></label>
+								<input type='text' name='art' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='The person(s) who created the music and other sounds in the .arduboy file.'>
+								<label><strong>Sound composer</strong></label>
+								<input type='text' name='sound' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='The URL of a web page for the .arduboy file, which can include more info or whatever the author wishes.'>
+								<label><strong>URL for more information</strong></label>
+								<input type='text' name='url' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='The URL of a site where the source code for this .arduboy file is available.'>
+								<label><strong>Source code URL</strong></label>
+								<input type='text' name='sourceurl' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='An email address that can be used to contact the author(s) for help, support or more information.'>
+								<label><strong>Email address for support</strong></label>
+								<input type='text' name='email' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='The URL for a companion program that runs on a PC or other device which may be used or required by this .arduboy file, such as a serial transfer program.'>
+								<label><strong>Companion program URL</strong></label>
+								<input type='text' name='companion' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='The filename of the image to be used for a banner displayed by loader programs. This must be a PNG/BMP/JPG/GIF file 700px wide by 192px high. The file must be included in the .arduboy file.'>
+								<label><strong>Banner filename</strong></label>
+								<input type='text' name='banner' style='width:calc(100% - 6px);'>
+							</div>
+							<div style='width:100%;text-align:left;' title='The filenames and descriptions of screenshots to be displayed by loader programs. Screenshots must be PNG/BMP/JPG/GIF files 128px wide by 64px high and black and white only. These files must be included in the .arduboy file.'>
+								<h2>Screenshots</h2>
+								<div class="subScreenshots">
+									<h3>Screenshot file 1</h3>
+									<div title='The filename of the screenshot.'>
+										<label><strong>Filename</strong></label>
+										<input type='text' class='multi' name='screenshots-filename-0' style='width:calc(100% - 6px);'>
+									</div>
+									<div title='The title or a short description of the screenshot.'>
+										<label><strong>Title</strong></label>
+										<input type='text' class='multi' name='screenshots-title-0' style='width:calc(100% - 6px);'>
+									</div>
+								</div>
+								<button onclick='addBlock("Screenshots")' id='buttonScreenshots'>+ Screenshot file</button>
+							</div>
+							<div style='width:100%;text-align:left;' title='The filenames and descriptions of the files containing the compiled code to be uploaded to an Arduboy. These files must be included in the .arduboy file. Multiple files can be included to provide separate versions compiled for the production Arduboy and the DevKit, and/or to provide more than one set of levels, chapters, versions with different difficulty, etc.'>
+								<h2>Loadable files</h2>
+								<div class="subBinaries">
+									<h3>Arduboy binary file 1</h3>
+									<div title='The filename of the screenshot.'>
+										<label><strong>Filename</strong></label>
+										<input type='text' class='multi' name='binaries-filename-0' style='width:calc(100% - 6px);'>
+									</div>
+									<div title='The title or a short description of the screenshot.'>
+										<label><strong>Title</strong></label>
+										<input type='text' class='multi' name='binaries-title-0' style='width:calc(100% - 6px);'>
+									</div>
+									<div title='The type of Arduboy that the code has been compiled for. This must be either Arduboy or DevKit.'>
+										<label><strong>Device</strong></label>
+										<select class='multi' name='binaries-device-0' style='width:100%;'>
+											<option>Arduboy</option>
+											<option>DevKit</option>
+										</select>
+									</div>
+								</div>
+								<button onclick='addBlock("Binaries")' id='buttonBinaries'>+ Arduboy binary file</button>
+							</div>
+							<div style='width:100%;text-align:left;' title='Descriptions of the actions that each button or button sequence performs to control the game/app.'>
+								<h2>Button usage</h2>
+								<div class="subButtons">
+									<h3>Button action performed 1</h3>
+									<div title='This can be a single button name such as 'A' or 'Up', more than one button such as 'A or B' or 'D-Pad', or a more detailed sequence such as 'A + B' or 'B while jumping'.'>
+										<label><strong>Button or button sequence</strong></label>
+										<input type='text' class='multi' name='buttons-control-0' style='width:calc(100% - 6px);'>
+									</div>
+									<div title="A description of the action performed by the specified button or button sequence such as 'Fire weapon' or 'Move character'.">
+										<label><strong>Action performed</strong></label>
+										<input type='text' class='multi' name='buttons-action-0' style='width:calc(100% - 6px);'>
+									</div>
+								</div>
+								<button onclick='addBlock("Buttons")' id='buttonButtons'>+ Button action performed</button>
+							</div>
+							<div style='width:100%;text-align:left;' title='The EEPROM area used.'>
+								<h2>EEPROM usage</h2>
+								<div>
+									<div title="If set to 'true' it indicates that the EEPROM area used will vary. For instance, the sketch may search for and then use a free area if it determines that an area hasn't previously been allocated. The start and end values must be set to include the entire possible area that could be used.">
+										<label><strong>Location is variable</strong></label>
+										<select name='eeprom-variable' style='width:100%;'>
+											<option>true</option>
+											<option>false</option>
+										</select>
+									</div>
+									<div title='A number which specifies the first EEPROM address used. It must be between 16 and 1023 and less than or equal to the end address.'>
+										<label><strong>Start address</strong></label>
+										<input type='number' min='16' max='1023' value='16' name='eeprom-start' style='width:calc(100% - 6px);'>
+									</div>
+									<div title='A number which specifies the last EEPROM address used. It must be between 16 and 1023 and greater than or equal to the start address.'>
+										<label><strong>End address</strong></label>
+										<input type='number' min='16' max='1023' value='16' name='eeprom-end' style='width:calc(100% - 6px);'>
+									</div>
+								</div>
+							</div>
+							<br>
+							<div>
+								<button onclick='showResult();'>Get JSON output</button>
+								<br><br>
+								<textarea id='result' rows='20' style='resize:none;width:698px;padding:0px;background-color:#FEFEFC;border:1px solid #463C3C;'></textarea>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<footer data-top='1000' data-height='70'>
+				<div style="position:relative">
+					<a href="http://www.twitter.com/TEAMarg_org">
+						<div class="shape_7" style="left:25px;top:1020px;width:48px;height:48px;z-index:7;position:absolute;">
+							<img src="images/twitter.gif" height="48" width="48" />
+						</div>
+					</a>
+				</div>
+				<div style="position:relative">
+					<a href="https://www.youtube.com/channel/UC5PtrkZ9BaCrLIW8WXe2_XA">
+						<div class="shape_8" style="left:85px;top:1020px;width:48px;height:48px;z-index:8;position:absolute;">
+							<img src="images/youtube.gif" height="48" width="48" />
+						</div>
+					</a>
+				</div>
+				<div style="position:relative">
+					<div class="shape_9" style="left:629px;top:1020px;width:96px;height:48px;z-index:9;position:absolute;">
+						<img src="images/8bit-games.gif" height="48" width="96" />
+					</div>
+				</div>
+				<div style="position:relative">
+					<div class="shape_10" style="left:25px;top:1000px;width:700px;height:5px;z-index:10;position:absolute;">
+						<img src="images/longLine.gif" height="5" width="700" />
+					</div>
+				</div>
+				<div style="position:relative">
+					<a href="https://github.com/TEAMarg">
+						<div class="shape_11" style="left:145px;top:1020px;width:48px;height:48px;z-index:11;position:absolute;">
+							<img src="images/github.gif" height="48" width="48" />
+						</div>
+					</a>
+				</div>
+				<div style="position:relative">
+					<a href="https://www.facebook.com/TEAMArduinoRetroGaming/">
+						<div class="shape_12" style="left:205px;top:1020px;width:48px;height:48px;z-index:12;position:absolute;">
+							<img src="images/facebook.gif" height="48" width="48" />
+						</div>
+					</a>
+				</div>
+			</footer>
+		</div>
+	</div>
+	<script language="JavaScript">
+		var screenshotsTemplate = {title: "", filename: ""};
+		var binariesTemplate = {title: "", filename: "", device: ""};
+		var buttonsTemplate = {control: "", action: ""};
+		var result = {
+			schemaVersion: 	2,
+			title: 			"",
+			description: 	"",
+			author: 		"",
+			version: 		"",
+			date: 			"",
+			genre: 			"",
+			publisher: 		"",
+			idea: 			"",
+			code: 			"",
+			art: 			"",
+			sound: 			"",
+			url: 			"",
+			sourceurl: 		"",
+			email: 			"",
+			companion: 		"",
+			banner: 		"",
+			screenshots: 	[screenshotsTemplate],
+			binaries:		[binariesTemplate],
+			buttons: 		[buttonsTemplate],
+			eeprom:{
+				variable: 	"",
+				start: 		16,
+				end: 		1023
+			}
+		};
+		var fields = document.querySelectorAll('input,select');
+		for(var i = 0; i < fields.length; i++){
+			fields[i].addEventListener('change', updateResult);
+		}
+		function addBlock(type){
+			var blocks = document.getElementsByClassName('sub'+type);
+			var lastBlock = blocks[blocks.length - 1];
+			var cloneBlock = lastBlock.cloneNode(true);
+			cloneBlock.querySelectorAll('.multi').forEach(function(e){
+				e.name = e.name.slice(0, e.name.lastIndexOf('-')+1)+(parseInt(e.name.slice(e.name.lastIndexOf('-')+1))+1);
+				e.addEventListener('change', updateResult);
+				e.value = "";
+			});
+			var subTitle = cloneBlock.querySelector('h3').innerHTML;
+			cloneBlock.querySelector('h3').innerHTML = subTitle.slice(0, subTitle.lastIndexOf(' ')+1)+(parseInt(subTitle.slice(subTitle.lastIndexOf(' ')+1))+1);
+			lastBlock.parentNode.insertBefore(cloneBlock, document.getElementById('button'+type));
+		}
+		function updateResult(){
+			var input = document.querySelectorAll('input,select');
+			for(var i = 0; i < input.length; i++){
+				var split = input[i].name.split('-');
+				if(input[i].className === "multi"){
+					if(result[split[0]] === undefined){
+						result[split[0]] = [eval(split[0]+'Template')];
+					}
+					if(result[split[0]][parseInt(split[2])] === undefined){
+						result[split[0]][parseInt(split[2])] = JSON.parse(JSON.stringify(eval(split[0]+'Template')));
+					}
+				}
+				switch(split.length){
+					case 1: result[split[0]] = input[i].value;
+						break;
+					case 2: result[split[0]][split[1]] = input[i].value;
+						break;
+					case 3: result[split[0]][parseInt(split[2])][split[1]] = input[i].value;
+						break;
+				}
+			}
+		}
+		function cleanResult(res) {
+	        for (var property in res) {
+	            if (res.hasOwnProperty(property)) {
+	                if (typeof res[property] == "object" && property !== "eeprom") {
+	                    for(var i = 0; i < res[property].length; i++){
+	                    	if((res[property][i]['title'] === "" || res[property][i]['filename'] === "") || (res[property][i]['action'] === "" || res[property][i]['control'] === "")){
+		                    	res[property].splice(i, 1);
+		                    }
+		                }
+	                }
+	                else {
+	                	if(res[property] === ""){
+	                		delete res[property];
+	                	}
+	                }
+	            }
+	        }
+	        var multi = ["screenshots", "binaries", "buttons"];
+	        for(var m = 0; m < multi.length; m++){
+	        	if(res[multi[m]] !== undefined && res[multi[m]].constructor === Array && res[multi[m]].length === 0){
+	        		delete res[multi[m]];
+	        	}
+	        }
+	    }
+		function showResult(){
+			var req = document.querySelectorAll('.required');
+			var date = document.querySelector('input[name="date"]');
+			if(date.name === "date" && date.value !== '' && checkDate(date.value) === false){
+				alert('Date field is using an incorrect format!\nPlease use one of these formats:\n2017-02-23\n2017-02-23T22:15:45Z');
+				return false;
+			}
+			for(var i = 0; i < req.length; i++){
+				if(req[i].value === ""){
+					alert('Please fill out all the required fields!');
+					return false;
+				}
+			}
+			cleanResult(result);
+			document.getElementById('result').value = JSON.stringify(result, null, 4);
+		}
+		function checkDate(dateString){
+			// Check if the correct format is given
+			if(!/^\d{4}-\d{1,2}-\d{1,2}$/.test(dateString) || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/.test(dateString))
+			    return false;
+			// Parse the date parts to integers
+			var parts = dateString.split("T")[0].split("-");
+			var day = parseInt(parts[2], 10);
+			var month = parseInt(parts[1], 10);
+			var year = parseInt(parts[0], 10);
+			// Check the ranges of month and year
+			if(year < 1000 || year > 3000 || month == 0 || month > 12)
+			    return false;
+			var monthLength = [ 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 ];
+			// Adjust for leap years
+			if(year % 400 == 0 || (year % 100 != 0 && year % 4 == 0))
+			    monthLength[1] = 29;
+			// Check the range of the day
+			return day > 0 && day <= monthLength[month - 1];
+		}
+    </script>
+</body>
+</html>

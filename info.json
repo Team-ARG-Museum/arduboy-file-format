@@ -1,0 +1,71 @@
+{
+  "schemaVersion": 2,
+  "title": "An Example",
+  "description": "This is an example json file ",
+  "author": "delegatevoid - crait - MLXXXp - JO3RI",
+  "version": "1.0",
+  "date": "2017-01-25",
+  "genre": "Misc",
+  "publisher": "Arduboy Community",
+  "idea": "delegatevoid - crait - MLXXXp - JO3RI",
+  "code": "delegatevoid - crait - MLXXXp - JO3RI",
+  "art": "delegatevoid - crait - MLXXXp - JO3RI",
+  "sound": "delegatevoid - crait - MLXXXp - JO3RI",
+  "url": "http://community.arduboy.com/t/arduboy-game-format-guide-arduboy-files/2784",
+  "sourceUrl": "https://github.com/TEAMarg/arduboy-file-format/blob/master/info.json",
+  "email": "info@arduboy.com",
+  "companion": "http://www.arduboy.com/",
+  "banner": "banner.png",
+  "screenshots": [
+    {
+      "title": "title screen",
+      "filename": "screenshot00.png"
+    },
+    {
+      "title": "level 1 in game",
+      "filename": "screenshot01.png"
+    }
+  ],
+  "binaries": [
+    {
+      "title": "The big example",
+      "filename": "example.hex",
+      "device": "Arduboy"
+    }
+  ],
+  "buttons": [
+    {
+      "control": "A",
+      "action": "pause"
+    },
+    {
+      "control": "B",
+      "action": "action"
+    },
+    {
+      "control": "Up",
+      "action": "jump"
+    },
+    {
+      "control": "Down",
+      "action": "duck"
+    },
+    {
+      "control": "Left",
+      "action": "run left"
+    },
+    {
+      "control": "Right",
+      "action": "run right"
+    },
+    {
+      "control": "A + B",
+      "action": "explode"
+    }
+  ],
+  "eeprom": {
+    "variable": false,
+    "start": 16,
+    "end": 20
+  }
+}
